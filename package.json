@@ -1,5 +1,5 @@
 {
-  "name": "chronark.com",
+  "name": "portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
     "fmt": "pnpm rome check . --apply-unsafe && pnpm rome format . --write"
   },
   "dependencies": {
+    "@motionone/utils": "^10.17.0",
     "@next/font": "^13.5.4",
     "@next/mdx": "^13.5.4",
     "@upstash/redis": "^1.23.3",
@@ -18,6 +19,7 @@
     "markdown-wasm": "^1.2.0",
     "next": "^13.5.4",
     "next-contentlayer": "^0.3.4",
+    "next-themes": "^0.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-wrap-balancer": "^1.1.0",
@@ -25,6 +27,7 @@
     "rehype-pretty-code": "^0.10.1",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "3.0.1",
+    "sass": "^1.77.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {

@@ -11,34 +11,35 @@ const redis = Redis.fromEnv();
 
 export const revalidate = 60;
 export default async function ProjectsPage() {
-  const views = (
-    await redis.mget<number[]>(
-      ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
-    )
-  ).reduce((acc, v, i) => {
-    acc[allProjects[i].slug] = v ?? 0;
-    return acc;
-  }, {} as Record<string, number>);
+  const hello = await redis.get("pageviews")
+  // const views = (
+  //   await redis.mget<number[]>(
+  //     ...allProjects.map((p) => ["pageviews", "projects", p.slug].join(":")),
+  //   )
+  // ).reduce((acc, v, i) => {
+  //   acc[allProjects[i].slug] = v ?? 0;
+  //   return acc;
+  // }, {} as Record<string, number>);
 
-  const featured = allProjects.find((project) => project.slug === "unkey")!;
-  const top2 = allProjects.find((project) => project.slug === "planetfall")!;
-  const top3 = allProjects.find((project) => project.slug === "highstorm")!;
-  const sorted = allProjects
-    .filter((p) => p.published)
-    .filter(
-      (project) =>
-        project.slug !== featured.slug &&
-        project.slug !== top2.slug &&
-        project.slug !== top3.slug,
-    )
-    .sort(
-      (a, b) =>
-        new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
-        new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
-    );
+  // const featured = allProjects.find((project) => project.slug === "unkey");
+  // const top2 = allProjects.find((project) => project.slug === "planetfall");
+  // const top3 = allProjects.find((project) => project.slug === "highstorm");
+  // const sorted = allProjects
+  //   .filter((p) => p.published)
+  //   .filter(
+  //     (project) =>
+  //       project.slug !== featured.slug &&
+  //       project.slug !== top2.slug &&
+  //       project.slug !== top3.slug,
+  //   )
+  //   .sort(
+  //     (a, b) =>
+  //       new Date(b.date ?? Number.POSITIVE_INFINITY).getTime() -
+  //       new Date(a.date ?? Number.POSITIVE_INFINITY).getTime(),
+  //   );
 
   return (
-    <div className="relative pb-16">
+    <div className="relative pb-16 bg-black">
       <Navigation />
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
         <div className="max-w-2xl mx-auto lg:mx-0">
@@ -49,9 +50,9 @@ export default async function ProjectsPage() {
             Some of the projects are from work and some are on my own time.
           </p>
         </div>
-        <div className="w-full h-px bg-zinc-800" />
+        {/* <div className="w-full h-px bg-zinc-800" /> */}
 
-        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
+        {/* <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 ">
           <Card>
             <Link href={`/projects/${featured.slug}`}>
               <article className="relative w-full h-full p-4 md:p-8">
@@ -131,7 +132,7 @@ export default async function ProjectsPage() {
                 </Card>
               ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -1,51 +1,56 @@
 import Link from "next/link";
 import React from "react";
-import Particles from "./components/particles";
+import Image from "next/image";
+import { Instagram, Github } from "lucide-react";
 
-const navigation = [
-  { name: "Projects", href: "/projects" },
-  { name: "Contact", href: "/contact" },
+const navigation = [{ name: "Projects", href: "/projects" }];
+
+const socials = [
+  { icon: <Instagram size={16} />, href: "https://www.instagram.com/gg1iu" },
+  { icon: <Github size={16} />, href: "https://github.com/gordonliu0" },
 ];
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen overflow-hidden bg-gradient-to-tl from-black via-zinc-600/20 to-black">
-      <nav className="my-16 animate-fade-in">
-        <ul className="flex items-center justify-center gap-4">
-          {navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-sm duration-500 text-zinc-500 hover:text-zinc-300"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </ul>
-      </nav>
-      <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <Particles
-        className="absolute inset-0 -z-10 animate-fade-in"
-        quantity={100}
-      />
-      <h1 className="z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-9xl whitespace-nowrap bg-clip-text ">
-        chronark
-      </h1>
-
-      <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
-      <div className="my-16 text-center animate-fade-in">
-        <h2 className="text-sm text-zinc-500 ">
-          I'm building{" "}
-          <Link
-            target="_blank"
-            href="https://unkey.dev"
-            className="underline duration-500 hover:text-zinc-300"
-          >
-            unkey.dev
-          </Link> to solve API authentication and authorization for developers.
-        </h2>
+    <div className="flex flex-row items-center justify-center overflow-hidden h-full">
+      <div className="flex flex-col items-center justify-center w-full h-full">
+        <div className="flex flex-col items-start justify-center gap-6 p-24">
+          <div className="w-10 h-10 relative">
+            <Image
+              src={"/profile.jpg"}
+              alt={"Profile Picture"}
+              fill
+              className="object-cover rounded-full "
+            />
+          </div>
+          <h2 className="z-10 text-lg cursor-default font-medium space tracking-tight w-1/2">
+            Hi, I'm Gordon Liu. I'm a machine learning researcher focused on
+            agent interactions and code synthesis. My mission is to enable
+            individuals to bring their big ideas to life.
+          </h2>
+          <div className="flex flex-col items-start justify-center gap-4 text-sm font-light leading-5">
+            <h2>
+              Some of my interests include full-stack development, data science,
+              AI/ML, pure math, and startups. With a deep-rooted passion for
+              learning, I have always voraciously applied theory to solve real
+              world issues.
+            </h2>
+            <h2>Thanks for stopping by! Feel free to contact me above. ☺️</h2>
+          </div>
+          <div className="flex flex-row justify-between w-full border-b border-black">
+            <input className="bg-transparent w-full outline-none text-sm"></input>
+            <div>→</div>
+          </div>
+          <div>✌️</div>
+          <div className="relative top-16 left-8 flex flex-row w-full items-end justify-end gap-4">
+            {socials.map((item) => (
+              <a key={item.href} href={item.href} className="w-3 h-3">
+                {item.icon}
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
-
 }

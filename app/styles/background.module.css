@@ -1,0 +1,32 @@
+.noise {
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  background: url("../filters/noise.svg");
+  opacity: 100%;
+  filter: contrast(120%) brightness(100%);
+  mix-blend-mode: multiply;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: moccasin;
+  mix-blend-mode: multiply;
+}
+
+.section {
+  position: relative;
+  top: 200px;
+  left: 200px;
+  width: 400px;
+  height: 100px;
+  box-shadow: rgb(50 50 93 / 20%) 0px 30px 60px -12px,
+    rgb(0 0 0 / 28%) 0px 18px 36px -18px;
+}
+
+.main {
+  background: #f6efeb;
+}
