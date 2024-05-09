@@ -103,7 +103,7 @@ export default function RootLayout({
                 {nav.map(
                   (item) =>
                     item.active && (
-                      <li>
+                      <li key={item.display}>
                         <Link href={item.link}>{item.display}</Link>
                       </li>
                     )
