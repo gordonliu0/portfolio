@@ -1,12 +1,13 @@
 import "../global.css";
-import { Inter } from "@next/font/google";
+import { Inter } from "next/font/google";
 import { Metadata } from "next";
 import Link from "next/link";
 import { GradientBackground } from "./components/background";
-import LocalFont from "@next/font/local";
+import LocalFont from "next/font/local";
 import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("http://localhost:3000"),
   title: {
     default: "gordon liu",
     template: "gordonliu.com",

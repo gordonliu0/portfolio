@@ -32,16 +32,16 @@ export default function Page() {
     <div className="w-full h-full overflow-x-hidden flex flex-col items-start justify-start gap-6 p-24">
       {Bookshelves.map((bookshelf) => {
         return (
-          <div>
+          <div key={bookshelf.year}>
             <div className="text-xl font-semibold">{bookshelf.year}</div>
             {bookshelf.shelves.map((shelf) => {
               return (
-                <div className="flex flex-row mt-3">
+                <div key={shelf.month} className="flex flex-row mt-3">
                   <div className="text-xs font-normal w-16">{shelf.month}</div>
                   <div>
                     {shelf.books.map((book) => {
                       return (
-                        <div className="text-xs">
+                        <div key={book.name} className="text-xs">
                           {`${book.name} - ${book.author} (${book.year})`}
                         </div>
                       );
