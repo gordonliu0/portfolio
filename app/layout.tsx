@@ -1,18 +1,8 @@
-// "use client";
-// DEFAULTS
 import "../global.css";
 import { Inter } from "@next/font/google";
 import LocalFont from "@next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "./components/analytics";
-
-// // NAVIGATION
-// import { Navigation } from "./components/Navigation";
-
-// // BACKGROUND
-// import { BackgroundCircles } from "./components/Background";
-// import Script from "next/script";
-// import styles from "./style.module.scss";
 
 // Background
 import { GradientBackground } from "./components/background";
@@ -57,9 +47,6 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
-
-// Elements
-import { ParallaxText } from "./components/parallaxtext";
 
 // const calSans = LocalFont({
 // 	src: "../public/fonts/CalSans-SemiBold.ttf",
