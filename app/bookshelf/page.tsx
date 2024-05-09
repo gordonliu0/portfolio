@@ -29,7 +29,7 @@ const Bookshelves: YearBookshelf[] = [Bookshelf2024];
 
 export default function Page() {
   return (
-    <div className="w-full h-full overflow-x-hidden flex flex-col items-start justify-start gap-6 p-12">
+    <div className="w-full h-full overflow-x-hidden flex flex-col items-start justify-start gap-6 p-24">
       {Bookshelves.map((bookshelf) => {
         return (
           <div>

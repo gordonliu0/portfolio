@@ -1,11 +1,10 @@
 import "../global.css";
 import { Inter } from "@next/font/google";
-import LocalFont from "@next/font/local";
 import { Metadata } from "next";
-import { Analytics } from "./components/analytics";
-
-// Background
+import Link from "next/link";
 import { GradientBackground } from "./components/background";
+import LocalFont from "@next/font/local";
+import { Analytics } from "./components/analytics";
 
 export const metadata: Metadata = {
   title: {
@@ -47,6 +46,33 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
+const nav = [
+  {
+    active: true,
+    display: "ABOUT",
+    link: "/",
+  },
+  {
+    active: false,
+    display: "RESEARCH",
+    link: "/research",
+  },
+  {
+    active: false,
+    display: "WRITING",
+    link: "/writing",
+  },
+  {
+    active: true,
+    display: "BOOKSHELF",
+    link: "/bookshelf",
+  },
+  {
+    active: false,
+    display: "PROJECTS",
+    link: "/projects",
+  },
+];
 
 // const calSans = LocalFont({
 // 	src: "../public/fonts/CalSans-SemiBold.ttf",
@@ -73,11 +99,15 @@ export default function RootLayout({
               {children}
             </div>
             <div className="relative top-2 right-12 rounded-xl h-[640px] w-[226px] pl-12 shadow-2xl">
-              <ul className="flex flex-col p-2 gap-2 w-full text-white text-4xl font-semibold underline break-words">
-                <li>RESEARCH</li>
-                <li>BOOKSHELF</li>
-                <li>PROJECTS</li>
-                <li>WRITING</li>
+              <ul className="flex flex-col p-4 gap-2 w-full text-white text-opacity-75 text-4xl font-semibold underline break-words">
+                {nav.map(
+                  (item) =>
+                    item.active && (
+                      <li>
+                        <Link href={item.link}>{item.display}</Link>
+                      </li>
+                    )
+                )}
               </ul>
             </div>
           </div>

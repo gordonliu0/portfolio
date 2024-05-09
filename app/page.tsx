@@ -33,10 +33,13 @@ export default function Home() {
           learning, I have always voraciously applied theory to solve real world
           issues.
         </h2>
-        <h2>Thanks for stopping by! Feel free to contact me above. ☺️</h2>
+        <h2>Sign up for updates below!</h2>
       </div>
-      <div className="flex flex-row justify-between w-full border-b border-black">
-        <input className="bg-transparent w-full outline-none text-sm"></input>
+      <div className="flex flex-row justify-between w-full border-b border-black border-opacity-10">
+        <input
+          className="bg-transparent w-full outline-none text-sm"
+          placeholder="email@gmail.com"
+        ></input>
         <div>→</div>
       </div>
       <div>✌️</div>
