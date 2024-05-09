@@ -1,42 +1,55 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
-import { motion } from "framer-motion";
-import Blob1 from "./blobs/blob1.svg";
-import Blob2 from "./blobs/blob2.svg";
-import Blob3 from "./blobs/circle1.svg";
+import React, { useEffect } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import Blob1 from "./blobs/circle1.svg";
 import Image from "next/image";
 import background from "app/styles/background.module.css";
 
 export const GradientBackground = () => {
+  // use in cursor calculations
+  const cursorSize = 10;
+  const mouse = {
+    x: useMotionValue(0),
+    y: useMotionValue(0),
+  };
+
+  const smoothMouse = {
+    x: useSpring(mouse.x),
+    y: useSpring(mouse.y),
+  };
+
+  const manageMouseMove = (e: MouseEvent) => {
+    const { clientX, clientY } = e;
+    mouse.x.set(clientX);
+    mouse.y.set(clientY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", manageMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", manageMouseMove);
+    };
+  });
+
   return (
-    <div className="absolute z-[1] w-screen h-screen overflow-hidden">
+    <div className="absolute z-[1] w-screen h-screen overflow-hidden bg-gradient-to-b from-blue-400 to-blue-200">
       <div className="z-1 h-full w-full absolute">
         <motion.div
-          className="absolute"
-          animate={{ x: -400, y: 600, opacity: 0.5 }}
-          transition={{ duration: 10, repeat: Infinity, repeatType: "mirror" }}
+          className="fixed opacity-100"
+          style={{ left: mouse.x, top: mouse.y }}
         >
-          <Image
-            className="blur-[256px] opacity-100 relative top-[200%] left-[120%]"
-            src={Blob3}
-            height={1500}
-            width={1500}
-            alt={"hello"}
-          />
+          <div className="flex items-center justify-center">
+            <div className="absolute mix-blend-exclusion w-10 h-10 rounded-full bg-white"></div>
+          </div>
         </motion.div>
         <motion.div
-          className="absolute"
-          animate={{ x: 200, y: -200, opacity: 0.5 }}
-          transition={{ duration: 15, repeat: Infinity, repeatType: "mirror" }}
+          className="fixed opacity-100"
+          style={{ left: smoothMouse.x, top: smoothMouse.y }}
         >
-          <Image
-            className="blur-[256px] relative right-full opacity-100"
-            src={Blob3}
-            height={1000}
-            width={1000}
-            alt={"hello"}
-          />
+          <div className="flex items-center justify-center">
+            <div className="absolute w-20 h-20 rounded-full border-2 border-white"></div>
+          </div>
         </motion.div>
       </div>
       <div className={background.noise}></div>

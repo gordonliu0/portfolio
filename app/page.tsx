@@ -21,7 +21,7 @@ export default function Home() {
           className="object-cover rounded-full"
         />
       </div>
-      <h2 className="z-10 text-lg cursor-default font-medium space tracking-tight w-2/3">
+      <h2 className="z-10 text-lg cursor-default font-medium space tracking-tight w-3/5">
         Hi, I'm Gordon Liu. My guiding mission is to empower individuals to
         bring their ideas to life. Right now, I'm a machine learning researcher
         focused on agent interactions and code synthesis.
@@ -30,7 +30,7 @@ export default function Home() {
         <h2>
           Through my life, I've explored many domains, including including
           full-stack development, theoretical math, startups, and roofing (yes,
-          the covering above you right now), and hopefully many more to come. I
+          you're thinking of the right roof), and hopefully many more to come. I
           believe human intelligence is at its most brilliant when its able to
           distill experience in disparate fields into useful generalizations
           applicable to all; also - it's just fun.
@@ -51,13 +51,15 @@ export default function Home() {
         ></input>
         <div>→</div>
       </div>
-      <div>✌️</div>
-      <div className="relative top-16 left-8 flex flex-row w-full items-end justify-end gap-4">
-        {socials.map((item) => (
-          <a key={item.href} href={item.href} className="w-3 h-3">
-            {item.icon}
-          </a>
-        ))}
+      <div className="w-full h-min relative">
+        <div>✌️</div>
+        <div className="absolute top-20 left-16 flex flex-row w-full items-end justify-end gap-4">
+          {socials.map((item) => (
+            <a key={item.href} href={item.href} className="w-3 h-3">
+              {item.icon}
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   );
