@@ -2,8 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
-import Blob1 from "./blobs/circle1.svg";
-import Image from "next/image";
 import background from "app/styles/background.module.css";
 
 export const GradientBackground = () => {

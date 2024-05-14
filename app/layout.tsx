@@ -2,7 +2,7 @@ import "../global.css";
 import { Inter } from "next/font/google";
 import { Metadata } from "next";
 import Link from "next/link";
-import { GradientBackground } from "./components/background";
+import { GradientBackground } from "./components/GradientBackground";
 import LocalFont from "next/font/local";
 import { Analytics } from "./components/analytics";
 

@@ -7,9 +7,11 @@ import { Article } from "./article";
 import { Redis } from "@upstash/redis";
 import { Eye } from "lucide-react";
 
+export const revalidate = 0;
+
 const redis = Redis.fromEnv();
 
-export default async function Home() {
+export default async function ProjectsPAge() {
   const member = await redis.srandmember<string>("nextjs14");
 
   return (
