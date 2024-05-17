@@ -1,10 +1,10 @@
 import "../global.css";
 import { Inter } from "next/font/google";
 import { Metadata } from "next";
-import Link from "next/link";
 import { GradientBackground } from "./components/GradientBackground";
-import LocalFont from "next/font/local";
-import { Analytics } from "./components/analytics";
+import { NavItem } from "./components/NavItem";
+
+// import LocalFont from "next/font/local";
 
 export const metadata: Metadata = {
   metadataBase: new URL("http://localhost:3000"),
@@ -69,7 +69,7 @@ const nav = [
     link: "/bookshelf",
   },
   {
-    active: false,
+    active: true,
     display: "PROJECTS",
     link: "/projects",
   },
@@ -96,19 +96,12 @@ export default function RootLayout({
         <GradientBackground />
         <div className="absolute z-[2] flex flex-row h-screen w-screen items-center justify-center">
           <div className="flex flex-row items-end">
-            <div className="relative bottom-2 ml-10 z-10 rounded-xl h-[640px] w-[960px] bg-[#F5F5F9] shadow-2xl bg-opacity-40">
+            <div className="overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-black relative bottom-2 ml-10 z-10 rounded-xl h-[680px] w-[1080px] bg-[#F5F5F9] shadow-2xl bg-opacity-40">
               {children}
             </div>
-            <div className="relative top-2 right-12 rounded-xl h-[640px] w-[226px] pl-12 shadow-2xl">
-              <ul className="flex flex-col p-4 gap-2 w-full text-white text-opacity-75 text-4xl font-semibold underline break-words">
-                {nav.map(
-                  (item) =>
-                    item.active && (
-                      <li key={item.display}>
-                        <Link href={item.link}>{item.display}</Link>
-                      </li>
-                    )
-                )}
+            <div className="relative top-2 right-12 rounded-xl h-[680px] w-[226px] pl-12 shadow-2xl">
+              <ul className="flex flex-col p-4 gap-2 w-full text-white text-4xl font-semibold underline break-words">
+                {nav.map((item) => item.active && <NavItem item={item} />)}
               </ul>
             </div>
           </div>

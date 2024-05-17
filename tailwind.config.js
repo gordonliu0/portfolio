@@ -104,6 +104,7 @@ module.exports = {
 	plugins: [
 		require("@tailwindcss/typography"),
 		require("tailwindcss-debug-screens"),
+    require('tailwind-scrollbar'),
 	],
   darkMode: 'class',
 };
