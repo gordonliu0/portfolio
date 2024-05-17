@@ -28,13 +28,29 @@ export const Project = defineDocumentType(() => ({
 			type: "string",
 			required: true,
 		},
+    photo: {
+      type: "string",
+      required: false,
+    },
+    tags: {
+      type: "list",
+      of: { type: "string"},
+      required: false,
+    },
 		description: {
 			type: "string",
 			required: true,
 		},
-		date: {
+		startDate: {
+			type: "date",
+      required: true,
+		},
+    endDate: {
 			type: "date",
 		},
+    date: {
+      type: "date",
+    },
 		url: {
 			type: "string",
 		},

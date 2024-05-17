@@ -96,7 +96,7 @@ export default function RootLayout({
         <GradientBackground />
         <div className="absolute z-[2] flex flex-row h-screen w-screen items-center justify-center">
           <div className="flex flex-row items-end">
-            <div className="overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-black relative bottom-2 ml-10 z-10 rounded-xl h-[680px] w-[1080px] bg-[#F5F5F9] shadow-2xl bg-opacity-40">
+            <div className="overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#FFFFFF99] relative bottom-2 ml-10 z-10 rounded-xl h-[680px] w-[1080px] bg-[#F5F5F9] shadow-2xl bg-opacity-40">
               {children}
             </div>
             <div className="relative top-2 right-12 rounded-xl h-[680px] w-[226px] pl-12 shadow-2xl">
