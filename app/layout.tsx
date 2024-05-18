@@ -95,14 +95,14 @@ export default function RootLayout({
       <body>
         <GradientBackground />
         <div className="absolute z-[2] flex flex-row h-screen w-screen items-center justify-center">
-          <div className="flex flex-row items-end">
-            <div className="overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#FFFFFF99] relative bottom-2 ml-10 z-10 rounded-xl h-[680px] w-[1080px] bg-[#F5F5F9] shadow-2xl bg-opacity-40">
-              {children}
-            </div>
-            <div className="relative top-2 right-12 rounded-xl h-[680px] w-[226px] pl-12 shadow-2xl">
-              <ul className="flex flex-col p-4 gap-2 w-full text-white text-4xl font-semibold underline break-words">
+          <div className="flex flex-row items-center">
+            <div className="rounded-xl h-[680px] w-[226px] shadow-2xl">
+              <ul className="flex flex-col p-4 gap-2 w-full text-white text-2xl font-semibold underline break-words">
                 {nav.map((item) => item.active && <NavItem item={item} />)}
               </ul>
+            </div>
+            <div className="overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#FFFFFF99] relative bottom-2 ml-10 z-10 rounded-xl h-[680px] w-[1080px] bg-[#F5F5F9] shadow-2xl bg-opacity-40">
+              {children}
             </div>
           </div>
         </div>
