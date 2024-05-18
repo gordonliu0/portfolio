@@ -44,13 +44,13 @@ export default function Home() {
           Finally, feel free to reach out for whatever reason (literally!).
         </h2>
       </div>
-      <div className="flex flex-row justify-between w-full border-b border-black border-opacity-10">
+      {/* <div className="flex flex-row justify-between w-full border-b border-black border-opacity-10">
         <input
           className="bg-transparent w-full outline-none text-sm"
           placeholder="email@gmail.com"
         ></input>
         <div>→</div>
-      </div>
+      </div> */}
       <div className="w-full h-min relative">
         <div>✌️</div>
         <div className="absolute top-20 left-16 flex flex-row w-full items-end justify-end gap-4">
