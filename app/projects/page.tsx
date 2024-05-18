@@ -40,9 +40,15 @@ export default async function ProjectsPage() {
     <div className="w-full h-full overflow-x-hidden flex flex-col items-start justify-start gap-6 p-24">
       {/* <Navigation /> */}
       <div className="text-xl font-semibold">Projects</div>
-      <div className="flex flex-col justify-start items-start gap-6">
+      <div className="w-full flex flex-col justify-start items-start gap-6">
         {sorted.map((project) => {
-          return <Project project={project} views={views[project.slug] ?? 0} />;
+          return (
+            <Project
+              project={project}
+              views={views[project.slug] ?? 0}
+              hasImage={false}
+            />
+          );
         })}
       </div>
     </div>
