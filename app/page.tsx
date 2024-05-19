@@ -30,18 +30,17 @@ export default function Home() {
         <h2>
           Through my life, I've explored many domains, including including
           full-stack development, theoretical math, startups, and roofing (yes,
-          you're thinking of the right roof), and hopefully many more to come. I
-          believe human intelligence is at its most brilliant when its able to
-          distill experience in disparate fields into useful generalizations
-          applicable to all; also - it's just fun.
+          roofing). I believe we're the most brilliant when we're able to
+          connect experiences in disparate fields to fuel creativity and deepen
+          understanding.
         </h2>
         <h2>
-          I try to balance thinking how to drive the world into the future and
-          how to live in the present. I like reading, writing, good food, yerba
-          mate, and running. Some hobbies on the backburner include piano, music
-          production, and gaming. With my writing, I hope I can stimulate
-          critical thinking and provide useful insights through my expereinces.
-          Finally, feel free to reach out for whatever reason (literally!).
+          I try to balance thinking in terms of the future with living in the
+          present. I like reading, writing, good food, yerba mate, and running.
+          Some other hobbies on the backburner include piano, music production,
+          and gaming. With my writing, I hope I can stimulate critical thinking
+          and provide useful insights through my expereinces. Finally, feel free
+          to reach out for whatever reason.
         </h2>
       </div>
       {/* <div className="flex flex-row justify-between w-full border-b border-black border-opacity-10">
@@ -51,6 +50,7 @@ export default function Home() {
         ></input>
         <div>→</div>
       </div> */}
+      <div className="text-sm font-light">Contact: gordonliu1106@gmail.com</div>
       <div className="w-full h-min relative">
         <div>✌️</div>
         <div className="absolute top-20 left-16 flex flex-row w-full items-end justify-end gap-4">
