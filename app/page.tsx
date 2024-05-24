@@ -39,8 +39,7 @@ export default function Home() {
           present. I like reading, writing, good food, yerba mate, and running.
           Some other hobbies on the backburner include piano, music production,
           and gaming. With my writing, I hope I can stimulate critical thinking
-          and provide useful insights through my expereinces. Finally, feel free
-          to reach out for whatever reason.
+          and provide useful insights through my experiences.
         </h2>
       </div>
       {/* <div className="flex flex-row justify-between w-full border-b border-black border-opacity-10">
@@ -50,7 +49,9 @@ export default function Home() {
         ></input>
         <div>→</div>
       </div> */}
-      <div className="text-sm font-light">Contact: gordonliu1106@gmail.com</div>
+      <div className="text-sm font-light">
+        Feel free to reach out for whatever reason at gordonliu1106@gmail.com
+      </div>
       <div className="w-full h-min relative">
         <div>✌️</div>
         <div className="absolute top-20 left-16 flex flex-row w-full items-end justify-end gap-4">
