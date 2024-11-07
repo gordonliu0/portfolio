@@ -49,7 +49,7 @@ export default function RootLayout({
         <GradientBackground />
         <div className="absolute z-[2] flex flex-row h-full w-full items-start justify-start">
           <NavBar />
-          <div className="h-full w-full z-10 overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#FFFFFF99] px-4 md:px-16 lg:px-24 xl:px-32">
+          <div className="h-min w-full z-10 overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#FFFFFF99] px-8 sm:h-full md:px-16 lg:px-24 xl:px-32">
             {children}
           </div>
         </div>

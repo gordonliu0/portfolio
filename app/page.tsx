@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Instagram, Github } from "lucide-react";
-import { NavItem } from "./(components)/NavItem";
 import Link from "next/link";
 
 const socials = [
@@ -12,7 +11,7 @@ const socials = [
 
 export default function Home() {
   return (
-    <div className="w-full h-full flex flex-col items-start justify-center gap-6 relative">
+    <div className="w-full h-full flex flex-col items-start justify-start my-24 sm:justify-center sm:mt-0 gap-6 relative">
       <h2 className="text-lg font-medium space tracking-tight">
         Hi! I'm Gordon Liu, a machine learning researcher, software engineer,
         and startup founder.
