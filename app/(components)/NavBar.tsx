@@ -71,7 +71,7 @@ const NavBar = () => {
   }, [mousePosition]);
 
   return (
-    <div className="absolute z-30 h-full">
+    <div className="fixed z-30 h-full">
       <div
         className={`pl-4 h-full flex flex-col justify-start pt-4 absolute transition-all duration-300 ease-out animate-bounce-x ${
           isOpen || !unopened ? "-translate-x-[150%]" : "translate-x-0"
