@@ -1,9 +1,9 @@
 "use client";
 import { Project } from "@/.contentlayer/generated";
 import { format } from "date-fns";
-import { ArrowLeft, Eye, Github, Twitter } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 type Props = {
   project: Project;
@@ -34,7 +34,7 @@ export const Header: React.FC<Props> = ({ project, views }) => {
 						} `}
       >
         <div className="flex flex-row gap-2 items-center">
-          <ArrowLeft className="w-4 h-4" /> Back to main
+          <ArrowLeft className="w-4 h-4" /> Back to all projects
         </div>
       </Link>
       <p className="text-xs text-gray-700">{`${Intl.NumberFormat("en-US", {
