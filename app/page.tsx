@@ -3,6 +3,7 @@
 import React from "react";
 import { Instagram, Github } from "lucide-react";
 import { NavItem } from "./(components)/NavItem";
+import Link from "next/link";
 
 const socials = [
   { icon: <Instagram size={16} />, href: "https://www.instagram.com/gg1iu" },
@@ -35,21 +36,21 @@ export default function Home() {
             <li>Finetuning foundation models</li>
           </ul>
           {"For detailed updates, see "}
-          <a className="underline" href="/lab">
+          <Link href="/lab" className="underline">
             lab
-          </a>
+          </Link>
           {". For past projects, see "}
-          <a className="underline" href="/projects">
+          <Link href="/projects" className="underline">
             projects
-          </a>
+          </Link>
           {". For book summaries and essays, see "}
-          <a className="underline" href="/books">
+          <Link href="/books" className="underline">
             books
-          </a>
+          </Link>
           {" and "}
-          <a className="underline" href="/writing">
+          <Link href="/writing" className="underline">
             writing
-          </a>
+          </Link>
           {" respectively."}
         </h2>
       </div>

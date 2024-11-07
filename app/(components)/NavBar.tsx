@@ -22,7 +22,7 @@ const nav = [
   {
     active: true,
     display: "books",
-    link: "/bookshelf",
+    link: "/books",
   },
   {
     active: false,
