@@ -73,11 +73,12 @@ const NavBar = () => {
   return (
     <div className="absolute z-30 h-full">
       <div
-        className={`pl-4 h-full flex flex-col justify-center absolute transition-all duration-300 ease-out animate-pulse ${
-          isOpen || !unopened ? "-translate-x-full" : "translate-x-0"
+        className={`pl-4 h-full flex flex-col justify-center absolute transition-all duration-300 ease-out animate-bounce-x ${
+          isOpen || !unopened ? "-translate-x-[150%]" : "translate-x-0"
         }`}
       >
         👈
+        <div className="text-xs font-light italic">hover</div>
       </div>
 
       <div

@@ -7,3 +7,40 @@
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
 }
+
+@layer utilities {
+  .animate-pulse-move {
+    animation: pulse-move 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-move {
+    0%,
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateX(100px);
+      opacity: 0.5;
+    }
+  }
+
+  .animate-bounce-x {
+    animation: bounce-x 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes bounce-x {
+    0%,
+    10% {
+      left: 0;
+    }
+    20%,
+    30% {
+      left: 10px;
+    }
+    40%,
+    100% {
+      left: 0;
+    }
+  }
+}
