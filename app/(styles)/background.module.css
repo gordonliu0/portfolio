@@ -2,7 +2,7 @@
   z-index: 10;
   height: 100%;
   width: 100%;
-  background: url("../filters/noise.svg");
+  background: url("../(filters)/noise.svg");
   opacity: 100%;
   filter: contrast(120%) brightness(100%);
   mix-blend-mode: multiply;

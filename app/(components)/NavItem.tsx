@@ -9,9 +9,9 @@ export const NavItem = ({
   item: { active: boolean; display: string; link: string };
 }) => {
   return (
-    <li key={item.display}>
+    <li className="w-max" key={item.display}>
       <motion.div whileHover={{ x: 5 }}>
-        <Link href={item.link} className="opacity-50 hover:opacity-100">
+        <Link href={item.link} className="opacity-80 hover:opacity-100">
           {item.display}
         </Link>
       </motion.div>

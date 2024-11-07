@@ -5,31 +5,94 @@ const ShelfMay2024: Shelf = {
   month: "May",
   books: [
     {
-      name: "The Effective Executive",
-      author: "Peter Drucker",
-      year: "1966",
-      imageURL:
-        "https://m.media-amazon.com/images/I/61zH9mWg75L._AC_UF1000,1000_QL80_.jpg",
+      name: "On Writing",
+      author: "Stephen King",
+      year: "2000",
     },
     {
-      name: "High Output Management",
-      author: "Andrew S. Grove",
-      year: "2015",
-      link: "https://medium.com/@iantien/top-takeaways-from-andy-grove-s-high-output-management-2e0ecfb1ea63",
+      name: "The Effective Executive",
+      author: "Peter Drucker",
+      year: "1967",
+    },
+  ],
+};
+
+const ShelfJune2024: Shelf = {
+  month: "June",
+  books: [
+    {
+      name: "Albert Einstein",
+      author: "Walter Isaacson",
+      year: "2007",
+    },
+    {
+      name: "Economics in One Lesson",
+      author: "Henry Hazlitt",
+      year: "1946",
+    },
+    {
+      name: "Steve Jobs",
+      author: "Walter Isaacson",
+      year: "2011",
+    },
+    {
+      name: "The Art of War",
+      author: "Sun Tzu",
+      year: "5th century BC",
+    },
+    {
+      name: "Unlimited Memory",
+      author: "Kevin Horsley",
+      year: "2014",
+    },
+  ],
+};
+
+const ShelfJuly2024: Shelf = {
+  month: "July",
+  books: [
+    {
+      name: "Zero to One",
+      author: "Peter Thiel",
+      year: "2014",
+    },
+    {
+      name: "Principles",
+      author: "Ray Dalio",
+      year: "2017",
+    },
+  ],
+};
+
+const ShelfAugust2024: Shelf = {
+  month: "August",
+  books: [
+    {
+      name: "The Lean Startup",
+      author: "Eric Ries",
+      year: "2011",
+    },
+    {
+      name: "Recruiting",
+      author: "Ryan Breslow",
+      year: "2022",
     },
   ],
 };
 
 const Bookshelf2024: YearBookshelf = {
   year: "2024",
-  shelves: [ShelfMay2024],
+  shelves: [ShelfMay2024, ShelfJune2024, ShelfJuly2024, ShelfAugust2024],
 };
 
-const Bookshelves: YearBookshelf[] = [Bookshelf2024];
-
+const Bookshelves = [Bookshelf2024];
 export default function Page() {
   return (
-    <div className="w-full h-full overflow-x-hidden flex flex-col items-start justify-start gap-6 p-24">
+    <div className="w-full h-full overflow-x-hidden flex flex-col items-start justify-start gap-6 mt-32">
+      <div className="text-xl font-semibold">Books</div>
+      <div>
+        Here are all the books I've read, arranged in chronological order.
+      </div>
       {Bookshelves.map((bookshelf) => {
         return (
           <div key={bookshelf.year}>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { allProjects } from "contentlayer/generated";
 import { Redis } from "@upstash/redis";
-import { Project } from "../components/Project";
+import { Project } from "../(components)/Project";
 
 export const revalidate = 0;
 
@@ -37,7 +37,7 @@ export default async function ProjectsPage() {
     );
 
   return (
-    <div className="w-full h-full overflow-x-hidden flex flex-col items-start justify-start gap-6 p-24">
+    <div className="w-full h-full overflow-x-hidden flex flex-col items-start justify-start gap-6 mt-32">
       {/* <Navigation /> */}
       <div className="text-xl font-semibold">Projects</div>
       <div className="w-full flex flex-col justify-start items-start gap-6">
