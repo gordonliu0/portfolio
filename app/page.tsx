@@ -22,7 +22,7 @@ export default function Home() {
           connect in unexpected ways.
         </h2>
         <h2>
-          This is a space is dedicated to sharing and exploring ideas. One of my
+          This is a space dedicated to sharing and exploring ideas. One of my
           guiding principles is that both theoretical rigor and uninhibited
           practical experimentation is needed to reach breakthroughs. You'll
           find this philosophy throughout my projects, research, and writing.
@@ -34,15 +34,16 @@ export default function Home() {
             <li>Cloud GPU deployment optimization</li>
             <li>Finetuning foundation models</li>
           </ul>
-          {"For detailed updates, see "}
+          {/* {"For detailed updates, see "}
           <Link href="/lab" className="underline">
             lab
-          </Link>
+          </Link> */}
           {". For past projects, see "}
           <Link href="/projects" className="underline">
             projects
           </Link>
-          {". For book summaries and essays, see "}
+          {"."}
+          {/* {". For book summaries and essays, see "}
           <Link href="/books" className="underline">
             books
           </Link>
@@ -50,7 +51,7 @@ export default function Home() {
           <Link href="/writing" className="underline">
             writing
           </Link>
-          {" respectively."}
+          {" respectively."} */}
         </h2>
       </div>
       <div className="text-sm font-light">
