@@ -38,7 +38,7 @@ export default function Home() {
           <Link href="/lab" className="underline">
             lab
           </Link> */}
-          {". For past projects, see "}
+          {"For past projects, see "}
           <Link href="/projects" className="underline">
             projects
           </Link>
