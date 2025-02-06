@@ -1,0 +1,84 @@
+---
+title: "LightFormer2"
+photo: www.asdf.com
+tags:
+  [
+    Vision Transformers,
+    Traffic Light Detection,
+    Computer Vision,
+    Machine Learning,
+    ML Architectures,
+  ]
+description: How I built an Intelligent Traffic Light Assistant using Finite State Machines and Vision Transformers.
+date: 2025-02-06
+startDate: 2024-9-3
+repository: https://github.com/gordonliu0/LightFormer2
+published: true
+---
+
+## Introduction
+
+In September 2024, I embarked on an ambitious project to develop an intelligent traffic assistant system that would enhance driver safety and convenience. The goal was to create a system that could automatically detect when traffic lights turn green, alerting drivers who might be distracted. What started as a seemingly straightforward computer vision project evolved into a deep exploration of modern machine learning architectures, systematic debugging, and infrastructure optimization.
+
+## Project Genesis and Initial Architecture
+
+The core concept was simple: a camera-based system that would alert drivers when stopped at a red light that had just turned green. After an extensive literature review of traffic light detection systems (covering 15 research papers), I discovered LightFormer, a cutting-edge model for end-to-end right-of-way detection that had successfully relabeled the BOSCH and LISA traffic light datasets.
+
+I began by designing a Finite State Machine (FSM) that would:
+
+1. Continuously monitor right-of-way status for both straight and left turns, using LightFormer
+2. Detect when the vehicle comes to a stop, using a motion detection module
+3. Monitor the appropriate signal based on the vehicle's lane position
+4. Trigger an alert when right-of-way becomes available
+
+## Deep Dive into Model Architecture
+
+The project took an interesting turn when I encountered issues with the original LightFormer implementation. Rather than treating these as roadblocks, I saw an opportunity for deeper learning. I made the deliberate choice to reimplement the entire model in pure PyTorch, stripping away the Lightning framework. This decision proved invaluable as it forced me to:
+
+- Dissect and understand each layer of the neural architecture
+- Refresh my understanding of fundamental concepts (CNNs, Transformers, RNNs)
+- Master advanced concepts like Subcenter Arcface
+- Gain hands-on experience with video classification architecture components
+
+## Systematic Debugging and Optimization
+
+When the model exhibited mode collapse during training, I implemented a systematic debugging approach that showcases my problem-solving methodology:
+
+1. **Data Analysis**: Implemented weighted sampling to address class imbalance
+2. **Architecture Validation**: Identified and fixed a critical double softmax bug
+3. **Training Dynamics**: Monitored activations for gradient issues
+4. **Hyperparameter Optimization**: Implemented learning rate finding and scheduling
+
+## Infrastructure and Tools Development
+
+Alongside the core ML work, I developed several supporting systems that demonstrate my full-stack capabilities:
+
+### Necromancer: Cost-Optimized Training Infrastructure
+
+- Developed a system for running training jobs on GCP spot instances
+- Achieved 60% cost reduction in cloud computing expenses
+- Implemented automatic training resumption using managed instance groups
+- Integrated with Google Cloud Storage for seamless state management
+
+### Development Tools
+
+- Implemented comprehensive TensorBoard monitoring
+- Created a preprocessing pipeline for efficient data handling
+- Developed a configuration system for parallel experiment management
+
+## Results and Future Directions
+
+The modified LightFormer architecture achieved ~70% accuracy on both straight and turn classifications. While not the state-of-the-art result I initially aimed for, I learned a lot about modern ML architectures. The project also opened my eyes to new frontiers and approaches which I plan on exploring:
+
+1. **Foundation Model Adaptation**: Investigating pre-trained vision models specifically tuned for traffic scenarios
+2. **Multimodal Integration**: Exploring models that can incorporate multiple types of traffic-related data
+3. **Novel Architecture Development**: Planning a new architecture (ChimeFormer) based on insights gained
+
+## Key Learnings and Technical Achievements
+
+This project helped me develop several critical skills:
+
+- Deep understanding of modern ML architectures
+- Systematic debugging and optimization
+- Infrastructure development and cost optimization
+- Practical implementation of academic research
