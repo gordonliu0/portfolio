@@ -80,19 +80,38 @@ const ShelfAugust2024: Shelf = {
   ],
 };
 
+const ShelfJanuary2025: Shelf = {
+  month: "January",
+  books: [
+    {
+      name: "Man’s Search for Meaning",
+      author: "Viktor E. Frankl",
+      year: "1946",
+    },
+    {
+      name: "The Origin of Consciousness in the Breakdown of the Bicameral Mind",
+      author: "Julian Jaynes",
+      year: "1976",
+    },
+  ],
+};
+
+const Bookshelf2025: YearBookshelf = {
+  year: "2025",
+  shelves: [ShelfJanuary2025],
+};
+
 const Bookshelf2024: YearBookshelf = {
   year: "2024",
   shelves: [ShelfMay2024, ShelfJune2024, ShelfJuly2024, ShelfAugust2024],
 };
 
-const Bookshelves = [Bookshelf2024];
+const Bookshelves = [Bookshelf2024, Bookshelf2025];
 export default function Page() {
   return (
     <div className="w-full h-full overflow-x-hidden flex flex-col items-start justify-start gap-6 mt-32">
       <div className="text-xl font-semibold">Books</div>
-      <div>
-        Here are all the books I've read, arranged in chronological order.
-      </div>
+      <div>Books I've read in chronological order.</div>
       {Bookshelves.map((bookshelf) => {
         return (
           <div key={bookshelf.year}>
