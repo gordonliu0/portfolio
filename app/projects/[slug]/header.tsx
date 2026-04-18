@@ -1,59 +1,100 @@
-"use client";
-import { Project } from "@/.contentlayer/generated";
-import { format } from "date-fns";
-import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
-import React from "react";
+import type { Project } from "../_data";
 
 type Props = {
-  project: Project;
-  views: number;
+	project: Project;
+	views: number;
 };
 
+function formatDate(iso: string): string {
+	return Intl.DateTimeFormat(undefined, {
+		year: "numeric",
+		month: "short",
+		day: "2-digit",
+	}).format(new Date(iso));
+}
+
+function formatHost(url: string): string {
+	try {
+		return new URL(url).host.replace(/^www\./, "");
+	} catch {
+		return url;
+	}
+}
+
 export const Header: React.FC<Props> = ({ project, views }) => {
-  const links: { label: string; href: string }[] = [];
+	const rows: { label: string; value: React.ReactNode }[] = [];
 
-  if (project.repository) {
-    links.push({
-      label: "GitHub",
-      href: project.repository,
-    });
-  }
-  if (project.url) {
-    links.push({
-      label: "Website",
-      href: project.url,
-    });
-  }
+	rows.push({ label: "Published", value: formatDate(project.date) });
 
-  return (
-    <div className="flex flex-col items-start">
-      <Link
-        href="/projects"
-        className={`text-sm text-zinc-900 mb-12 duration-200 hover:font-medium hover:underline
-						} `}
-      >
-        <div className="flex flex-row gap-2 items-center">
-          <ArrowLeft className="w-4 h-4" /> Back to all projects
-        </div>
-      </Link>
-      <p className="text-xs text-gray-700">{`${Intl.NumberFormat("en-US", {
-        notation: "compact",
-      }).format(views)} Views | Updated ${format(
-        project.date!,
-        "MMM dd, yyyy"
-      )}`}</p>
-      <h1 className="font-bold tracking-tight text-4xl font-display">
-        {project.title}
-      </h1>
-      <p className="text-md">{project.description}</p>
-      <div className="mt-4 flex flex-col gap-1 text-sm underline underline-offset-4 font-medium">
-        {links.map((link) => (
-          <Link target="_blank" key={link.label} href={link.href}>
-            {link.label}
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
+	if (project.startDate) {
+		rows.push({
+			label: "Worked",
+			value: `${formatDate(project.startDate)} — ${formatDate(project.date)}`,
+		});
+	}
+
+	if (project.tags && project.tags.length > 0) {
+		rows.push({ label: "Tags", value: project.tags.join(", ") });
+	}
+
+	if (project.repository) {
+		rows.push({
+			label: "Repository",
+			value: (
+				<a
+					href={project.repository}
+					target="_blank"
+					rel="noreferrer"
+					className="underline underline-offset-4 hover:text-ink"
+				>
+					{formatHost(project.repository)}
+				</a>
+			),
+		});
+	}
+
+	if (project.url) {
+		rows.push({
+			label: "Live",
+			value: (
+				<a
+					href={project.url}
+					target="_blank"
+					rel="noreferrer"
+					className="underline underline-offset-4 hover:text-ink"
+				>
+					{formatHost(project.url)}
+				</a>
+			),
+		});
+	}
+
+	rows.push({
+		label: "Views",
+		value: Intl.NumberFormat("en-US", { notation: "compact" }).format(views),
+	});
+
+	return (
+		<header className="flex flex-col gap-8">
+			<div className="flex flex-col gap-4">
+				<h1 className="font-light text-5xl leading-[1.05] tracking-tight sm:text-6xl">
+					{project.title}
+				</h1>
+				<p className="text-lg text-muted leading-relaxed">
+					{project.description}
+				</p>
+			</div>
+
+			<dl className="grid grid-cols-[8rem_1fr] gap-y-3 font-mono text-sm">
+				{rows.map((row) => (
+					<div key={row.label} className="contents">
+						<dt className="text-muted text-xs uppercase tracking-widest">
+							{row.label}
+						</dt>
+						<dd className="text-ink">{row.value}</dd>
+					</div>
+				))}
+			</dl>
+		</header>
+	);
 };

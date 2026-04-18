@@ -1,72 +1,103 @@
-"use client";
-
-import React from "react";
-import { Instagram, Github } from "lucide-react";
 import Link from "next/link";
 
 const socials = [
-  { icon: <Instagram size={16} />, href: "https://www.instagram.com/gg1iu" },
-  { icon: <Github size={16} />, href: "https://github.com/gordonliu0" },
+	{ label: "Email", value: "gordonliu1106@gmail.com", href: "mailto:gordonliu1106@gmail.com" },
+	{ label: "GitHub", value: "gordonliu0", href: "https://github.com/gordonliu0" },
+	{ label: "Instagram", value: "gg1iu", href: "https://www.instagram.com/gg1iu" },
+];
+
+const interests = [
+	"Vision transformers",
+	"Cloud GPU deployment optimization",
+	"Finetuning foundation models",
 ];
 
 export default function Home() {
-  return (
-    <div className="w-full h-full flex flex-col items-start justify-start my-24 sm:justify-center sm:my-0 gap-6 relative">
-      <h2 className="text-lg font-medium space tracking-tight">
-        Hi! I'm Gordon Liu, a machine learning researcher and software engineer.
-      </h2>
-      <div className="flex flex-col items-start justify-center gap-4 text-sm font-light leading-5">
-        <h2>
-          I've always been fascinated by how different fields of knowledge
-          connect in unexpected ways.
-        </h2>
-        <h2>
-          This is a space dedicated to sharing and exploring ideas. One of my
-          guiding principles is that both theoretical rigor and uninhibited
-          practical experimentation is needed to reach breakthroughs. You'll
-          find this philosophy throughout my projects, research, and writing.
-        </h2>
-        <h2>
-          Some topics I'm currently interested in include:
-          <ul className="pl-4">
-            <li>Vision transformers</li>
-            <li>Cloud GPU deployment optimization</li>
-            <li>Finetuning foundation models</li>
-          </ul>
-          {/* {"For detailed updates, see "}
-          <Link href="/lab" className="underline">
-            lab
-          </Link> */}
-          {"For past projects, see "}
-          <Link href="/projects" className="underline">
-            projects
-          </Link>
-          {"."}
-          {/* {". For book summaries and essays, see "}
-          <Link href="/books" className="underline">
-            books
-          </Link>
-          {" and "}
-          <Link href="/writing" className="underline">
-            writing
-          </Link>
-          {" respectively."} */}
-        </h2>
-      </div>
-      <div className="text-sm font-light">
-        I hope this place sparks ideas for your own ambitious builds. If you're
-        interested in research collaboration, technical projects, or startups,
-        feel free to reach out at gordonliu1106@gmail.com ✌️
-      </div>
-      <div className="w-full h-min relative">
-        <div className="flex flex-row w-full items-start justify-start gap-4">
-          {socials.map((item) => (
-            <a key={item.href} href={item.href} className="w-3 h-3">
-              {item.icon}
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+	return (
+		<div className="flex flex-col gap-24">
+			<header>
+				<h1 className="font-light text-5xl leading-[1.05] tracking-tight sm:text-7xl">
+					Machine learning researcher and software engineer,
+					<span className="text-muted">
+						{" "}
+						building at the edge of theory and practice.
+					</span>
+				</h1>
+			</header>
+
+			<section className="grid gap-6 sm:grid-cols-[10rem_1fr] sm:gap-10">
+				<p className="font-mono text-muted text-xs uppercase tracking-widest">
+					About
+				</p>
+				<div className="flex flex-col gap-4 text-lg leading-relaxed">
+					<p>
+						I've always been fascinated by how different fields of knowledge
+						connect in unexpected ways. This is a space dedicated to sharing
+						and exploring ideas.
+					</p>
+					<p>
+						One of my guiding principles is that both theoretical rigor and
+						uninhibited practical experimentation are needed to reach
+						breakthroughs. You'll find this philosophy throughout my projects,
+						research, and writing.
+					</p>
+				</div>
+			</section>
+
+			<section className="grid gap-6 sm:grid-cols-[10rem_1fr] sm:gap-10">
+				<p className="font-mono text-muted text-xs uppercase tracking-widest">
+					Currently
+				</p>
+				<ul className="flex flex-col divide-y divide-hairline border-hairline border-y">
+					{interests.map((topic) => (
+						<li key={topic} className="py-3 text-lg">
+							{topic}
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<section className="grid gap-6 sm:grid-cols-[10rem_1fr] sm:gap-10">
+				<p className="font-mono text-muted text-xs uppercase tracking-widest">
+					Reach
+				</p>
+				<ul className="flex flex-col divide-y divide-hairline border-hairline border-y">
+					{socials.map((s) => (
+						<li
+							key={s.href}
+							className="grid grid-cols-[8rem_1fr] items-baseline gap-6 py-3"
+						>
+							<span className="font-mono text-muted text-xs uppercase tracking-widest">
+								{s.label}
+							</span>
+							<a
+								href={s.href}
+								target={s.href.startsWith("http") ? "_blank" : undefined}
+								rel="noreferrer"
+								className="text-lg underline-offset-4 hover:underline"
+							>
+								{s.value}
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+
+			<section className="grid gap-6 sm:grid-cols-[10rem_1fr] sm:gap-10">
+				<p className="font-mono text-muted text-xs uppercase tracking-widest">
+					See also
+				</p>
+				<p className="text-lg leading-relaxed">
+					Past work lives in{" "}
+					<Link
+						href="/projects"
+						className="underline underline-offset-4 hover:text-muted"
+					>
+						projects
+					</Link>
+					.
+				</p>
+			</section>
+		</div>
+	);
 }

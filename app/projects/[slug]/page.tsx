@@ -1,48 +1,56 @@
+import { Redis } from "@upstash/redis";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { allProjects } from "contentlayer/generated";
-import { Mdx } from "@/app/(components)/mdx";
+import { Page } from "@/app/(components)/Page";
+import { getAllSlugs, getProject } from "../_data";
 import { Header } from "./header";
 import "./mdx.css";
 import { ReportView } from "./view";
-import { Redis } from "@upstash/redis";
 
 export const revalidate = 60;
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
-
 const redis = Redis.fromEnv();
 
-export async function generateStaticParams(): Promise<Props["params"][]> {
-  return allProjects
-    .filter((p) => p.published)
-    .map((p) => ({
-      slug: p.slug,
-    }));
+export function generateStaticParams() {
+	return getAllSlugs().map((slug) => ({ slug }));
 }
 
-export default async function PostPage({ params }: Props) {
-  const slug = params?.slug;
-  const project = allProjects.find((project) => project.slug === slug);
+export default async function PostPage({
+	params,
+}: {
+	params: Promise<{ slug: string }>;
+}) {
+	const { slug } = await params;
+	const project = await getProject(slug);
 
-  if (!project) {
-    notFound();
-  }
+	if (!project || project.meta.published === false) {
+		notFound();
+	}
 
-  const views =
-    (await redis.get<number>(["pageviews", "projects", slug].join(":"))) ?? 0;
+	const views =
+		(await redis.get<number>(["pageviews", "projects", slug].join(":"))) ?? 0;
 
-  return (
-    <div className="mt-24">
-      <Header project={project} views={views} />
-      <ReportView slug={project.slug} />
+	const { Component } = project;
 
-      <article className="py-4 prose prose-sm prose-quoteless">
-        <Mdx code={project.body.code} />
-      </article>
-    </div>
-  );
+	return (
+		<Page
+			gutter={
+				<Link
+					href="/projects"
+					aria-label="Back to projects"
+					className="font-light text-5xl text-muted leading-none hover:text-ink sm:text-6xl"
+				>
+					←
+				</Link>
+			}
+		>
+			<div className="flex flex-col gap-12">
+				<Header project={project.meta} views={views} />
+				<ReportView slug={slug} />
+				<article className="prose prose-lg max-w-none">
+					<Component />
+				</article>
+			</div>
+		</Page>
+	);
 }
