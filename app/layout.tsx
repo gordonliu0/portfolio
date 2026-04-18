@@ -1,8 +1,8 @@
-import "../global.css";
+import "./globals.css";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
-import NavBar from "./(components)/NavBar";
+import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
 	metadataBase: new URL("http://localhost:3000"),

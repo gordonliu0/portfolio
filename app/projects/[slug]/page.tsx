@@ -1,10 +1,9 @@
 import { Redis } from "@upstash/redis";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Page } from "@/app/(components)/Page";
+import { Page } from "@/components/Page";
 import { getAllSlugs, getProject } from "../_data";
 import { Header } from "./header";
-import "./mdx.css";
 import { ReportView } from "./view";
 
 export const revalidate = 60;
