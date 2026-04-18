@@ -10,34 +10,28 @@ export default async function ProjectsPage() {
 		.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 	return (
-		<div className="flex flex-col gap-20">
-			<h1 className="text-right font-light text-5xl leading-[1.05] tracking-tight sm:text-7xl">
-				Projects
-			</h1>
-
-			<ul className="flex flex-col">
-				{sorted.map((project) => {
-					const year = new Date(project.date).getFullYear();
-					return (
-						<li key={project.slug}>
-							<Link
-								href={`/projects/${project.slug}`}
-								className="group grid grid-cols-[auto_1fr_auto] items-baseline gap-8 py-6"
-							>
-								<span className="font-mono text-muted text-xs uppercase tracking-widest">
-									{project.id}
-								</span>
-								<h2 className="font-light text-2xl tracking-tight underline-offset-4 group-hover:underline sm:text-3xl">
-									{project.title}
-								</h2>
-								<span className="font-mono text-muted text-xs uppercase tracking-widest">
-									{year}
-								</span>
-							</Link>
-						</li>
-					);
-				})}
-			</ul>
-		</div>
+		<ul className="flex flex-col">
+			{sorted.map((project) => {
+				const year = new Date(project.date).getFullYear();
+				return (
+					<li key={project.slug}>
+						<Link
+							href={`/projects/${project.slug}`}
+							className="group grid grid-cols-[auto_1fr_auto] items-baseline gap-8 py-6"
+						>
+							<span className="font-mono text-muted text-xs uppercase tracking-widest">
+								{project.id}
+							</span>
+							<h2 className="font-light text-2xl tracking-tight underline-offset-4 group-hover:underline sm:text-3xl">
+								{project.title}
+							</h2>
+							<span className="font-mono text-muted text-xs uppercase tracking-widest">
+								{year}
+							</span>
+						</Link>
+					</li>
+				);
+			})}
+		</ul>
 	);
 }
