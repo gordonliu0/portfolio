@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const socials = [
+const contacts = [
 	{ label: "Email", value: "gordonliu1106@gmail.com", href: "mailto:gordonliu1106@gmail.com" },
 	{ label: "GitHub", value: "gordonliu0", href: "https://github.com/gordonliu0" },
 	{ label: "Instagram", value: "gg1iu", href: "https://www.instagram.com/gg1iu" },
@@ -62,21 +62,21 @@ export default function Home() {
 					Reach
 				</p>
 				<ul className="flex flex-col divide-y divide-hairline border-hairline border-y">
-					{socials.map((s) => (
+					{contacts.map((contact) => (
 						<li
-							key={s.href}
+							key={contact.href}
 							className="grid grid-cols-[8rem_1fr] items-baseline gap-6 py-3"
 						>
 							<span className="font-mono text-muted text-xs uppercase tracking-widest">
-								{s.label}
+								{contact.label}
 							</span>
 							<a
-								href={s.href}
-								target={s.href.startsWith("http") ? "_blank" : undefined}
+								href={contact.href}
+								target={contact.href.startsWith("http") ? "_blank" : undefined}
 								rel="noreferrer"
 								className="text-lg underline-offset-4 hover:underline"
 							>
-								{s.value}
+								{contact.value}
 							</a>
 						</li>
 					))}

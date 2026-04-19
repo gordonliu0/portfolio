@@ -2,7 +2,7 @@ import { Redis } from "@upstash/redis";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SidebarLayout } from "@/components/SidebarLayout";
-import { getAllSlugs, getProject } from "../_data";
+import { getAllSlugs, getProject } from "../projects";
 import { ProjectHeader } from "./project-header";
 import { TrackPageview } from "./track-pageview";
 

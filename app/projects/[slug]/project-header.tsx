@@ -1,4 +1,4 @@
-import type { Project } from "../_data";
+import type { Project } from "../projects";
 
 type ProjectHeaderProps = {
 	project: Project;
