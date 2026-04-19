@@ -1,9 +1,9 @@
 import { Redis } from "@upstash/redis";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Page } from "@/components/Page";
+import { SidebarLayout } from "@/components/SidebarLayout";
 import { getAllSlugs, getProject } from "../_data";
-import { Header } from "./header";
+import { ProjectHeader } from "./project-header";
 import { TrackPageview } from "./track-pageview";
 
 export const revalidate = 60;
@@ -32,8 +32,8 @@ export default async function ProjectPage({
 	const { Component } = project;
 
 	return (
-		<Page
-			gutter={
+		<SidebarLayout
+			sidebar={
 				<Link
 					href="/projects"
 					aria-label="Back to projects"
@@ -44,12 +44,12 @@ export default async function ProjectPage({
 			}
 		>
 			<div className="flex flex-col gap-12">
-				<Header project={project.meta} views={views} />
+				<ProjectHeader project={project.meta} views={views} />
 				<TrackPageview slug={slug} />
 				<article className="prose prose-lg max-w-none">
 					<Component />
 				</article>
 			</div>
-		</Page>
+		</SidebarLayout>
 	);
 }

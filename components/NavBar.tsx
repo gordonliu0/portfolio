@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const nav = [
-	{ label: "Projects", link: "/projects" },
+const navItems = [
+	{ label: "Projects", href: "/projects" },
 ];
 
 export default function NavBar() {
@@ -21,16 +21,16 @@ export default function NavBar() {
 				</Link>
 
 				<nav className="flex gap-8 text-muted">
-					{nav.map((item) => {
-						const active =
-							pathname === item.link || pathname.startsWith(`${item.link}/`);
+					{navItems.map((item) => {
+						const isActive =
+							pathname === item.href || pathname.startsWith(`${item.href}/`);
 						return (
 							<Link
-								key={item.link}
-								href={item.link}
-								aria-current={active ? "page" : undefined}
+								key={item.href}
+								href={item.href}
+								aria-current={isActive ? "page" : undefined}
 								className={`underline-offset-4 hover:text-ink hover:underline ${
-									active ? "font-medium text-ink" : ""
+									isActive ? "font-medium text-ink" : ""
 								}`}
 							>
 								{item.label}

@@ -1,6 +1,6 @@
 import type { Project } from "../_data";
 
-type Props = {
+type ProjectHeaderProps = {
 	project: Project;
 	views: number;
 };
@@ -21,7 +21,10 @@ function formatHost(url: string): string {
 	}
 }
 
-export const Header: React.FC<Props> = ({ project, views }) => {
+export const ProjectHeader: React.FC<ProjectHeaderProps> = ({
+	project,
+	views,
+}) => {
 	const rows: { label: string; value: React.ReactNode }[] = [];
 
 	rows.push({ label: "Published", value: formatDate(project.date) });
