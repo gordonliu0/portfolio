@@ -6,7 +6,7 @@ export const revalidate = 60;
 export default async function ProjectsPage() {
 	const projects = await getAllProjects();
 	const visibleProjects = projects
-		.filter((p) => p.published !== false)
+		.filter((p) => !p.draft)
 		.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 	return (

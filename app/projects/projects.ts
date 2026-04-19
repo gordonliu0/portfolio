@@ -11,7 +11,7 @@ export type ProjectFrontmatter = {
 	url?: string;
 	repository?: string;
 	tags?: string[];
-	published?: boolean;
+	draft?: boolean;
 };
 
 export type Project = ProjectFrontmatter & { slug: string; id: string };

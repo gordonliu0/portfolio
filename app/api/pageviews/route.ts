@@ -32,7 +32,7 @@ export async function POST(request: Request): Promise<Response> {
 			.join("");
 
 		// deduplicate the ip for each slug
-		const isNew = await redis.set(["deduplicate", digestHex, slug].join(":"), true, {
+		const isNew = await redis.set(["dedupe", digestHex, slug].join(":"), true, {
 			nx: true,
 			ex: 24 * 60 * 60,
 		});

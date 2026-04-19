@@ -46,12 +46,12 @@ export default function Home() {
 
 			<section className="grid gap-6 sm:grid-cols-[10rem_1fr] sm:gap-10">
 				<p className="font-mono text-muted text-xs uppercase tracking-widest">
-					Currently
+					Interests
 				</p>
 				<ul className="flex flex-col divide-y divide-hairline border-hairline border-y">
-					{interests.map((topic) => (
-						<li key={topic} className="py-3 text-lg">
-							{topic}
+					{interests.map((interest) => (
+						<li key={interest} className="py-3 text-lg">
+							{interest}
 						</li>
 					))}
 				</ul>
