@@ -1,0 +1,31 @@
+{
+  "report_id": "b",
+  "scores": {
+    "correctness": {
+      "score": 5,
+      "justification": "Every claim verified against the code: ReportView only POSTs, PostPage is at line 17 (~L20 approximate), /api/incr path, nav singular, gutter prop, mod abbreviation, buf, iso, active, p, Props, rows/value all exist as described."
+    },
+    "coverage": {
+      "score": 4,
+      "justification": "Catches the high-impact misleading names (ReportView, PostPage), public URL jargon, convention violations, abbreviations, and boolean prefix; misses a few minor parallels like `s` in socials.map and the file-name mismatch between view.tsx and ReportView."
+    },
+    "prioritization": {
+      "score": 5,
+      "justification": "Critical bucket correctly captures misleading/lying names and the externally-visible URL; high/medium/low gradient is defensible and maps to blast radius."
+    },
+    "actionability": {
+      "score": 5,
+      "justification": "Each item names a specific target (ReportView\u2192ViewTracker, gutter\u2192aside, buf\u2192digest, etc.) with an exact file location, safe for mechanical application."
+    },
+    "rationale": {
+      "score": 5,
+      "justification": "Every finding includes a crisp why \u2014 domain mismatch, convention precedent, self-describing inputs, greppability \u2014 not just assertion."
+    },
+    "signal_density": {
+      "score": 5,
+      "justification": "Tight two-line entries, no boilerplate or filler; each line carries information."
+    }
+  },
+  "fabrications": [],
+  "overall_notes": "Accurate, well-prioritized audit with concrete replacements and clean why-it-matters explanations. Strongest on signal density and actionability; coverage is solid but leaves a few minor parallels unmentioned. Prioritization of misleading-name issues (ReportView, PostPage) as critical is well-reasoned."
+}

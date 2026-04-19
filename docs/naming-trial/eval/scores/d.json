@@ -1,0 +1,34 @@
+{
+  "report_id": "d",
+  "scores": {
+    "correctness": {
+      "score": 4,
+      "justification": "All file paths, line numbers, and behavior descriptions check out; the only slip is overstating that project CLAUDE.md 'mandates' boolean prefixes and 'prefer full words' \u2014 neither is explicit there."
+    },
+    "coverage": {
+      "score": 5,
+      "justification": "Catches the high-impact issues (stale PostPage, misleading ReportView, incr route, active boolean, socials misnomer, metas/mod/buf/all abbreviations, sorted-describing-operation) with few meaningful misses."
+    },
+    "prioritization": {
+      "score": 5,
+      "justification": "Misleading/stale domain names are correctly elevated to Critical; abbreviations and vague plurals sit in Major; style-only items in Minor \u2014 a defensible ordering."
+    },
+    "actionability": {
+      "score": 5,
+      "justification": "Every finding gives a concrete replacement and exact location, plus a Top-3 shortlist safe to mechanically apply."
+    },
+    "rationale": {
+      "score": 4,
+      "justification": "Each finding has a Reason line tied to convention, consequence, or domain accuracy; a few (rows\u2192metaRows, gutter\u2192aside) are thinner than the rest."
+    },
+    "signal_density": {
+      "score": 5,
+      "justification": "Tight Critical/Major/Minor structure with Current/Issue/Suggestion/Reason fields \u2014 little filler, most lines carry information."
+    }
+  },
+  "fabrications": [
+    "Claim that project CLAUDE.md 'mandates' boolean is/has/can prefixes \u2014 the file has no such rule",
+    "Claim that project CLAUDE.md prescribes 'prefer full words' over abbreviations \u2014 not present in CLAUDE.md"
+  ],
+  "overall_notes": "Strong, well-organized audit: accurate line references, sensible severity buckets, and concrete rename targets throughout. The only real weakness is leaning on CLAUDE.md as authority for conventions it doesn't actually codify, which slightly inflates the rationale for two of the findings. Overall a high-signal report with clear, apply-ready suggestions."
+}

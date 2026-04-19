@@ -1,0 +1,33 @@
+{
+  "report_id": "e",
+  "scores": {
+    "correctness": {
+      "score": 4,
+      "justification": "All file paths, line numbers, and behavior descriptions verified against the code; one small slip \u2014 header.tsx is not a 'lone outlier' since view.tsx in the same directory also uses camelCase."
+    },
+    "coverage": {
+      "score": 5,
+      "justification": "Catches the high-impact issues (PostPage in /projects, ReportView tracker, ambiguous Page, incr route, link vs href, sorted mid-step name, Project type ambiguity) and picks up subtle ones like topic/interests and the error message phrasing."
+    },
+    "prioritization": {
+      "score": 5,
+      "justification": "Critical bucket (wrong domain, misleading name, ambiguous Page, implementation-leaking route) matches real reader-impact; medium and minor tiers are defensibly ordered."
+    },
+    "actionability": {
+      "score": 5,
+      "justification": "Every finding has a concrete replacement name, a specific file/line target, and usually an alternative \u2014 ready to mechanically apply."
+    },
+    "rationale": {
+      "score": 5,
+      "justification": "Each finding explains why it matters (searchability, convention alignment, implementation leakage, intent-naming) rather than asserting badness."
+    },
+    "signal_density": {
+      "score": 5,
+      "justification": "Compact numbered list with one tight paragraph per finding; no boilerplate, scaffolding, or repetition."
+    }
+  },
+  "fabrications": [
+    "#7 claims header.tsx is a 'lone outlier' for camelCase, but view.tsx in the same directory also uses camelCase \u2014 it's not alone."
+  ],
+  "overall_notes": "Strong, tightly written audit: claims fact-check cleanly, priorities align with real reader impact, and each suggestion includes a concrete replacement name and location. Only nick is the 'lone outlier' overstatement for header.tsx. Otherwise a high-signal report with solid rationale throughout."
+}

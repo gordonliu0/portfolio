@@ -1,0 +1,33 @@
+{
+  "report_id": "c",
+  "scores": {
+    "correctness": {
+      "score": 4,
+      "justification": "All behavior and name claims verified; minor slip: PostPage is at line 17, not line 7 (line 7 is the ReportView import)."
+    },
+    "coverage": {
+      "score": 4,
+      "justification": "Catches the high-impact issues (ReportView, PostPage, idBySlug, gutter, incr, Header) and flags consistent patterns worth standardizing."
+    },
+    "prioritization": {
+      "score": 4,
+      "justification": "Critical tier correctly holds the most misleading names (ReportView side effect, PostPage wrong domain); idBySlug arguably belongs in critical given its silent misdirection."
+    },
+    "actionability": {
+      "score": 5,
+      "justification": "Every finding has a concrete replacement name, exact file path, and is safe to mechanically apply."
+    },
+    "rationale": {
+      "score": 4,
+      "justification": "Each item has a terse 'Reason' line grounded in principle or convention, though some rationales are thin (e.g., 'Colloquial' for socials)."
+    },
+    "signal_density": {
+      "score": 5,
+      "justification": "Tight format with no filler; structured table-like entries where every line carries information."
+    }
+  },
+  "fabrications": [
+    "Claims `PostPage` is at `app/projects/[slug]/page.tsx:7`; the function is declared on line 17 (line 7 is an import)."
+  ],
+  "overall_notes": "A compact, high-signal report that correctly identifies the most consequential naming problems (ReportView masking a side effect, PostPage using wrong domain vocabulary, idBySlug actually returning a display number). Suggestions are concrete and ready to apply. One minor line-number slip and slightly shallow rationale on the Minor tier are the main nits."
+}

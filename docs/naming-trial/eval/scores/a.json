@@ -1,0 +1,34 @@
+{
+  "report_id": "a",
+  "scores": {
+    "correctness": {
+      "score": 4,
+      "justification": "Nearly every file/line citation verifies; slips include the 'avoid abbreviations' rule attributed to CLAUDE.md (actually phrased as 'Meaningful naming - Use descriptive names') and header.tsx:36 cited for a p/a/b map param when that line has no such variable."
+    },
+    "coverage": {
+      "score": 5,
+      "justification": "Captures the high-impact misleads (ReportView, /api/incr, PostPage, gutter/Page, nav.link vs href, interests/Currently, _data.ts) plus the abbreviation cluster and minor single-letter params with few meaningful gaps."
+    },
+    "prioritization": {
+      "score": 5,
+      "justification": "Critical bucket correctly centers name/behavior mismatches and a user-visible URL; the 'Top 3' ordering is defensible and the severity tiers reflect real impact."
+    },
+    "actionability": {
+      "score": 5,
+      "justification": "Every finding has a concrete replacement name and specific target location, and the suggestions are safe to mechanically apply."
+    },
+    "rationale": {
+      "score": 4,
+      "justification": "Critical and High items have crisp why-it-matters explanations (domain term, convention, reader expectation); some Medium/Minor entries are terser but still defensible."
+    },
+    "signal_density": {
+      "score": 5,
+      "justification": "Compact structure with no filler \u2014 each bullet carries a location, a problem, and a fix in a single line."
+    }
+  },
+  "fabrications": [
+    "'avoid abbreviations' rule in CLAUDE.md \u2014 the file says 'Meaningful naming - Use descriptive names', not a literal abbreviation rule",
+    "header.tsx:36 cited for p/a/b single-letter map params \u2014 that line is `if (project.tags && ...)`, with no single-letter variable and no sort/filter"
+  ],
+  "overall_notes": "A tight, well-prioritized audit that correctly flags the most misleading name (ReportView returning null while implying UI) and the user-visible /api/incr. Citations are accurate with only two minor slips, and every suggestion ships with a concrete rename. Strong rationale on critical items, slightly thin on the minor tier."
+}
