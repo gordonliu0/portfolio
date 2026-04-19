@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Page } from "@/components/Page";
 import { getAllSlugs, getProject } from "../_data";
 import { Header } from "./header";
-import { ReportView } from "./view";
+import { TrackPageview } from "./track-pageview";
 
 export const revalidate = 60;
 
@@ -14,7 +14,7 @@ export function generateStaticParams() {
 	return getAllSlugs().map((slug) => ({ slug }));
 }
 
-export default async function PostPage({
+export default async function ProjectPage({
 	params,
 }: {
 	params: Promise<{ slug: string }>;
@@ -45,7 +45,7 @@ export default async function PostPage({
 		>
 			<div className="flex flex-col gap-12">
 				<Header project={project.meta} views={views} />
-				<ReportView slug={slug} />
+				<TrackPageview slug={slug} />
 				<article className="prose prose-lg max-w-none">
 					<Component />
 				</article>
