@@ -38,6 +38,6 @@ next-env.d.ts
 .contentlayer
 
 # claude code local state
-/.claude/
-/.agents/
+.claude/settings.local.json
+.claude/worktrees/
 skills-lock.json

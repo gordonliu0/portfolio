@@ -1,0 +1,13 @@
+{
+  "version": "0.1.0",
+  "organization": "portfolio",
+  "date": "April 2026",
+  "reactVersion": "19.2",
+  "abstract": "Tiny companion skill to vercel-react-best-practices and react-19. Covers six React 19.0-19.2 items neither skill addresses: View Transition hydration, Owner Stacks, cacheSignal, batched Suspense reveals, createRoot error callbacks, and ref callback cleanup.",
+  "references": [
+    "https://github.com/facebook/react/blob/main/CHANGELOG.md",
+    "https://react.dev/blog/2024/12/05/react-19",
+    "https://react.dev/reference/react",
+    "https://react.dev/reference/react-dom/client/createRoot"
+  ]
+}
